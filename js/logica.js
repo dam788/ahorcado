@@ -71,7 +71,6 @@
     const juegoIniciado = () => {
     
         limpiaTablero();
-        btnDisabled();
         pidePalabra();
         agregaLetras();
         comparacionLetras();
@@ -87,7 +86,12 @@
         palabra = prompt('escribe palabra de 3-12 caracteres');
         palabra = palabra.match(/^[A-Za-z]{3,12}$/);
     
-        if (!palabra) return palabra = "";
+        if (!palabra) {
+          btnEnabled();
+          return (palabra = "");
+        } else {
+          btnDisabled();
+        }
     
         palabra = palabra[0].toLowerCase();
     
